@@ -1,3 +1,5 @@
+
+
 //fancybox
 Fancybox.bind("[data-fancybox]", {
 	//settings
@@ -108,6 +110,18 @@ popupElements.forEach(element => {
 		}
 	}
 })
+
+
+//button scroll 
+document.querySelectorAll('.js-anchor').forEach(anchor => {
+	anchor.addEventListener('click', function (e) {
+		e.preventDefault();
+		document.querySelector(this.getAttribute('href')).scrollIntoView({
+			behavior: 'smooth'
+		});
+	});
+});
+//set 'scroll-margin-top' form block if header fixed
 
 
 
