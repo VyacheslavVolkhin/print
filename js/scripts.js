@@ -121,7 +121,6 @@ document.querySelectorAll('.js-anchor').forEach(anchor => {
 		});
 	});
 });
-//set 'scroll-margin-top' form block if header fixed
 
 
 
