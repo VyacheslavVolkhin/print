@@ -1,0 +1,401 @@
+/* ----------------------------------- *\
+			inputs elements styles
+\* ----------------------------------- */
+.form-input[placeholder] {
+    text-overflow: ellipsis;
+}
+.form-input {
+    text-overflow: ellipsis;
+}
+textarea.form-input {
+
+}
+select.form-input {
+    display: block;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-right: 30px;
+    background-image: url(../img/icons/arrow-select.svg);
+    background-position: right 20px center;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    appearance: none!important;
+    line-height: 1em;
+    text-indent: 0.01px;
+    //text-overflow: '';
+    outline: none;
+	cursor: pointer;
+    &.form-input-clear {
+        height: auto;
+        border: none;
+        min-height: 0;
+        border-radius: 0;
+        box-shadow: none;
+        width: auto;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1em;
+        line-height: inherit;
+        padding: 0 16px 0 0;
+        color: inherit;
+        font-weight: bold;
+        background-image: url(../img/icons/arrow-select.png);
+        background-size: 8px auto;
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+}
+select::-ms-expand {
+    display: none;
+}
+//   <select class="form-input form-input-line" required>
+//       <option value="" disabled selected hidden>Выбрать</option>
+//       <option>Пункт списка</option>
+//   </select>
+select.form-input:required:invalid {
+    color: #ADADAD;
+}
+.btn {
+	height: 65px;
+	border-radius: 12px;
+	background: var(--clr-border);
+	border: 1px solid var(--clr-border);
+	padding: 0 29px;
+	font-size: 20px;
+	color: var(--clr-dark);
+	text-transform: uppercase;
+	font-weight: bold;
+	.fA;
+	&.button-content {
+		height: 52px;
+		padding: 0 16px;
+		border-radius: 30px;
+		font-size: 14px;
+		font-weight: 400;
+		.fD;
+	}
+	&.button-att {
+		background-color: var(--clr-att);
+		border-color: var(--clr-att);
+		color: var(--clr-base);
+		&:hover {
+			color: var(--clr-base);
+			border-color: var(--clr-att-hover);
+			background-color: var(--clr-att-hover);
+		}
+		.button-ico {
+			filter: brightness(0) invert(1);
+		}
+	}
+	&.button-light {
+		background-color: var(--clr-base);
+		border-color: var(--clr-base);
+		&:hover {
+			background-color: var(--clr-border);
+			border-color: var(--clr-border);
+		}
+	}
+	&.button-dark {
+		background-color: var(--clr-bg-dark);
+		border-color: var(--clr-bg-dark);
+		color: var(--clr-att);
+		&:hover {
+			background-color: var(--clr-base);
+			border-color: var(--clr-base);
+			color: var(--clr-dark);
+		}
+	}
+	&:hover {
+		background-color: var(--clr-base);
+		border-color: var(--clr-base);
+		color: var(--clr-dark);
+	}
+	&.button-text {
+		height: auto;
+		min-height: 54px;
+		white-space: normal;
+		padding: 11px 14px;
+		text-align: left;
+		font-size: 14px;
+		font-weight: 400;
+		border-radius: var(--large-radius);
+	}
+	&.button-clear {
+		width: auto;
+		height: auto;
+		line-height: 24px;
+		color: inherit;
+		white-space: normal;
+		align-items: center;
+		padding: 0;
+		min-width: 0;
+		background: none;
+		border: none;
+		border-radius: 0;
+		font-weight: inherit;
+		&:hover {
+			border: none;
+			background: none;
+			color: var(--clr-att);
+		}
+		.button-ico {
+			width: 24px;height: 24px;
+			filter: none
+		}
+	}
+    &.button-border {
+        &:not(:hover) {
+            background-color: transparent;
+            color: #231f20;
+        }
+        &:hover, &.active {
+            background-color: var(--clr-att);
+            border-color: var(--clr-att);
+            .button-ico {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+    .button-ico {
+        width: 24px;
+        height: 24px;
+        margin: 0 10px;
+        transition: all ease 0.2s;
+		flex-shrink: 0;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    .button-title {
+        &[data-title] {
+            &:before {
+                content: attr(data-title);
+            }
+        }
+        &[data-show] {
+            &:before {
+                content: attr(data-show);
+            }
+        }
+    }
+    &.active {
+        .button-title {
+            &[data-title-active] {
+                &:before {
+                    content: attr(data-title-active);
+                }
+            }
+        }
+        .button-title {
+            &[data-hide] {
+                &:before {
+                    content: attr(data-hide);
+                }
+            }
+        }
+    }
+}
+.btn-action-ico {
+    min-width: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 40px;height: 40px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    transition: all ease 0.2s;
+    flex-shrink: 0;
+    &:not(.btn) {
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+    &.btn {
+        min-width: 0;
+        min-height: 0;
+        padding: 0;
+        display: block;
+		border-radius: 50%;
+    }
+    &:before, &:after, [class*="icon-"], img, svg {
+        display: block;
+        position: absolute;
+        top: 0;bottom: 0;left: 0;right: 0;
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+        transition: all ease 0.2s;
+    }
+    img, svg {
+        max-width: 24px;
+        max-height: 24px;
+    }
+    &:before, &:after {
+        content: "";
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 24px auto;
+    }
+    &:hover {
+        text-decoration: none;
+        &:not(.btn) {
+            background: none;
+            box-shadow: none;
+        }
+    }
+	&.ico-more {
+		&:before {
+			background-image: url(../img/icons/arrow-more.svg);
+		}
+	}
+    &.ico-arrow {
+        z-index: 20;
+        cursor: pointer;
+        &:before {
+            background-image: url(../img/icons/arrow-slider.png);
+        }
+        &:hover {
+        }
+		&.swiper-button-disabled {
+			opacity: 0.5;
+		}
+    }
+    &.ico-arrow-prev {
+        &:before {
+            .t-rotate(180deg);
+        }
+    }
+    &.ico-menu {
+        &:after, &:before, span {
+			display: block;
+			position: absolute;
+            width: 24px;
+            height: 4px;
+			border-radius: 2px;
+			margin: -9px 0 0 0;
+            top: 50%;
+            left: 8px;
+            right: auto;
+            bottom: auto;
+			background: var(--clr-att);
+			transition: all ease 0.8s;
+        }
+        &:before {
+            margin-top: 5px;
+			width: 16px;
+        }
+		span {
+			margin-top: -2px;
+		}
+		&.active {
+			&:before, &:after, span {
+				left: 50%;
+				width: 24px;
+				margin-left: -12px;
+				margin-top: -2px;
+				transform: rotate(360deg);
+			}
+			&:before {
+				transform: rotate(405deg);
+			}
+			&:after {
+				transform: rotate(495deg);
+			}
+			span {
+				opacity: 0;
+			}
+		}
+    }
+    &.ico-close {
+        &:after, &:before {
+            width: 20px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            bottom: auto;
+            right: auto;
+            margin: -1px 0 0 -10px;
+            background: var(--clr-base);
+        }
+        &:before {
+            .t-rotate(45deg);
+        }
+        &:after {
+            .t-rotate(-45deg);
+        }
+    }
+    &.button-soc {
+        img, svg {
+			filter: brightness(0) invert(1);
+        }
+        &:hover {
+            img, svg {
+				filter: none;
+			}
+        }
+    }
+}
+.btn-action-icon {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: inherit;
+    &.button-att {
+        color: var(--clr-att);
+        .button-ico {
+            filter: none;
+        }
+    }
+    &:hover {
+        color: var(--clr-att);
+        .button-ico {
+            filter: none;
+        }
+    }
+    .button-ico {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        filter: brightness(0) grayscale(1);
+        &+.button-title {
+            padding-left: 10px;
+        }
+    }
+    .button-title {
+        display: block;
+    }
+}
+@media (max-width: 1023px) {
+	.btn {
+		&.button-small, &.button-vsmall {
+			height: 48px;
+			font-size: 14px;
+			font-weight: 400;
+			.fD;
+		}
+		&.button-vsmall {
+			height: 40px;
+			.fD;
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.btn {
+		&.button-text {
+			border-radius: 12px;
+			font-size: 2rem;
+		}
+	}
+}
