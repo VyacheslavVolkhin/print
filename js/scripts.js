@@ -5,6 +5,63 @@ Fancybox.bind("[data-fancybox]", {
 	//settings
 });
 
+// Popups
+document
+  .querySelectorAll('.popup-outer-box').forEach(function(element) {
+	element.addEventListener('click', function (event) {
+	if (!event.target.closest('.popup-box')) {
+	  document.body.classList.remove('popup-open');
+	  document.body.classList.remove('popup-open-scroll');
+	  document.querySelectorAll('.popup-outer-box').forEach(function(e) {
+		e.classList.remove('active');
+			})
+	  return false;
+		}
+	});
+})
+
+
+//files add
+document.querySelector('.js-field-file .js-file-button').addEventListener('click', function() {
+  this.parentElement.querySelector('input[type="file"]').click();
+});
+const inputs = document.querySelectorAll('.js-field-file input[type="file"]');
+for (let i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener('change', function(event) {
+	let fileName = event.target.value;
+	if (fileName == '') {
+	  fileName = this.parentNode.querySelector('.js-file-button').getAttribute('data-title');
+
+	  this.parentNode.classList.remove('active');
+	  this.parentNode.querySelector('.js-file-button .button-title').innerHTML = fileName;
+	} else {
+	  this.parentNode.classList.add('active');
+	  this.parentNode.querySelector('.js-file-button .button-title').innerHTML = fileName;
+	}
+  });
+}
+
+
+// items animations
+let sTop = window.scrollY + window.innerHeight;
+const items = document.querySelectorAll('.item-animation');
+items.forEach(function (item) {
+  if (item.offsetTop < sTop) {
+	item.classList.add('item-active');
+	}
+});
+window.addEventListener('scroll', function () {
+  sTop = this.scrollY + this.innerHeight; // Обновляем позицию прокрутки
+
+  items.forEach((item) => { // Проверяем все элементы с классом item-animation
+	if (item.offsetTop < sTop) { // Если он находится ниже позиции прокрутки
+	  item.classList.add('item-active'); // Добавляем класс item-active
+		} else {
+	  item.classList.remove('item-active'); // Иначе удаляем класс
+		}
+	});
+});
+
 
 //js popup wrap
 const togglePopupButtons = document.querySelectorAll('.js-btn-popup-toggle')
@@ -125,17 +182,20 @@ document.querySelectorAll('.js-anchor').forEach(anchor => {
 
 
 //slider gallery
-const swiperSliderGallery = new Swiper('.slider-gallery .swiper', {
-	loop: false,
-	slidesPerView: 1,
-	spaceBetween: 0,
-	autoheight: true,
-	speed: 400,
-	pagination: {
-		el: '.slider-gallery-pagination',
-		clickable: true,
-	},
-
+const swiperSliderGallery = new Swiper(".slider-gallery .swiper", {
+  loop: false,
+  slidesPerView: 1,
+  spaceBetween: 0,
+  autoheight: true,
+  speed: 500,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".slider-gallery-pagination",
+    clickable: true,
+  },
 });
 
 
@@ -151,3 +211,5 @@ const swiperSliderProjects = new Swiper(".slider-projects .swiper", {
   },
   breakpoints: {},
 });
+
+

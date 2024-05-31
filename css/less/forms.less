@@ -1,6 +1,81 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
+.frm-field-file {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	input[type="file"] {
+		display: block;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+		font-size: 0;
+		opacity: 0;
+		top: 110%;
+		left: 110%;
+		position: absolute;
+		z-index: -999;
+	}
+	.btn-file {
+		height: 24px;
+		line-height: 22px;
+		display: block;
+		max-width: 100%;
+		width: 100%;
+		line-height: 16px;
+		padding: 0 15px;
+		position: relative;
+		overflow: hidden;
+		border-radius: 0;
+		box-shadow: none;
+		background: none;
+		border: none;
+		font-size: 14px;
+		letter-spacing: 0.2px;
+		color: #000;
+		cursor: pointer;
+		border-radius: 5px;
+		border: 1px solid var(--clr-bg-dark);
+		.button-title {
+			height: 22px;
+			line-height: 22px;
+			display: block;
+			max-width: 100%;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	}
+}
+.frm-popup {
+	margin: 0 auto;
+	.frm-field {
+		margin-bottom: 10px;
+		line-height: 1.25;
+	}
+	.row-info {
+		text-align: center;
+		a {
+			color: inherit;
+		}
+	}
+	.frm-field-input {
+		.field-title {
+			min-width: 120px;
+			padding-right: 10px;
+			font-size: 16px;
+		}
+	}
+	.frm-row-submit {
+		text-align: center;
+		padding-top: 15px;
+		.btn {
+			min-width: 180px;
+		}
+	}
+}
 .frm-field-input {
 	display: flex;
 	border-radius: 50px;
